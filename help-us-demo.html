@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Us - Kozhikode District Association of the Deaf</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        #menu {
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            color: #000066;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar a {
+            font-size: 16px;
+            color: #000066;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: #4a6fa5;
+        }
+        
+        /* Help Us Section Styles */
+        .help-section {
+            padding: 100px 5% 60px;
+            background: #fff;
+            min-height: 100vh;
+        }
+        
+        .help-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #000066;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #4a6fa5;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .donation-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donation-icon {
+            font-size: 50px;
+            color: #4a6fa5;
+            margin-bottom: 20px;
+        }
+        
+        .donation-title {
+            font-size: 22px;
+            color: #000066;
+            margin-bottom: 15px;
+        }
+        
+        .donation-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .donation-amounts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .amount-btn {
+            padding: 8px 15px;
+            background: #e6e6e6;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .amount-btn:hover {
+            background: #4a6fa5;
+            color: white;
+        }
+        
+        .custom-amount {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .donate-btn {
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .donate-btn:hover {
+            background: #3a5a80;
+        }
+        
+        .bank-details {
+            background: #000066;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        
+        .bank-details h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .bank-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .bank-item {
+            margin-bottom: 15px;
+        }
+        
+        .bank-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .impact-section {
+            margin-bottom: 50px;
+        }
+        
+        .impact-section h2 {
+            font-size: 28px;
+            color: #000066;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .impact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .impact-icon {
+            font-size: 40px;
+            color: #4a6fa5;
+            margin-bottom: 15px;
+        }
+        
+        .impact-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000066;
+            margin-bottom: 10px;
+        }
+        
+        .impact-text {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 4%;
+            }
+            
+            #menu {
+                display: block;
+            }
+            
+            .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                gap: 25px;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                font-size: 18px;
+            }
+            
+            .help-section {
+                padding: 80px 3% 40px;
+            }
+            
+            .page-title {
+                font-size: 30px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .donation-card {
+                padding: 20px;
+            }
+            
+            .bank-details {
+                padding: 25px;
+            }
+            
+            .bank-details h2 {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .page-title {
+                font-size: 26px;
+            }
+            
+            .donation-title {
+                font-size: 20px;
+            }
+            
+            .impact-number {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- *************************Navbar************************* -->
+    <header class="header">
+        <a href="#" class="logo"><img src="logo2.png" alt="Logo"></a>
+        <i class='bx bx-menu' id="menu"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="team.html">Our Team</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="help.html" class="active">Help Us</a>
+        </nav>
+    </header>
+    
+    <!-- *************************Help Us Section************************* -->
+    <section class="help-section" id="help">
+        <div class="help-container">
+            <h1 class="page-title">Support Our Cause</h1>
+            <p class="page-subtitle">Your generous donation can make a significant difference in the lives of the deaf community</p>
+            
+            <div class="donation-options">
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="donation-title">One-Time Donation</h3>
+                    <p class="donation-description">Make a single donation to support our immediate needs and programs.</p>
+                    
+                    <div class="donation-amounts">
+                        <button class="amount-btn">₹500</button>
+                        <button class="amount-btn">₹1000</button>
+                        <button class="amount-btn">₹2000</button>
+                    </div>
+                    
+                    <input type="number" class="custom-amount" placeholder="Enter custom amount (₹)">
+                    <button class="donate-btn">Donate Now</button>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="donation-title">Monthly Support</h3>
+                    <p class="donation-description">Become a monthly donor and provide sustained support for our ongoing programs.</p>
+                    
+                    <div class="donation-amounts">
+                        <button class="amount-btn">₹300</button>
+                        <button class="amount-btn">₹500</button>
+                        <button class="amount-btn">₹1000</button>
+                    </div>
+                    
+                    <input type="number" class="custom-amount" placeholder="Enter custom amount (₹)">
+                    <button class="donate-btn">Subscribe Monthly</button>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="donation-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="donation-title">Sponsor a Program</h3>
+                    <p class="donation-description">Support specific programs like education, vocational training, or medical assistance.</p>
+                    
+                    <select class="custom-amount">
+                        <option value="">Select a program to sponsor</option>
+                        <option value="education">Education Support Program</option>
+                        <option value="vocational">Vocational Training</option>
+                        <option value="medical">Medical Assistance</option>
+                        <option value="event">Community Events</option>
+                    </select>
+                    
+                    <input type="number" class="custom-amount" placeholder="Enter donation amount (₹)">
+                    <button class="donate-btn">Sponsor Program</button>
+                </div>
+            </div>
+            
+            <div class="bank-details">
+                <h2>Bank Transfer Details</h2>
+                <div class="bank-info">
+                    <div class="bank-item">
+                        <strong>Account Name</strong>
+                        <p>Kozhikode District Association of the Deaf</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>Bank Name</strong>
+                        <p>State Bank of India</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>Account Number</strong>
+                        <p>XXXXXXXXXXXX</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>IFSC Code</strong>
+                        <p>SBIN000XXXX</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>Branch</strong>
+                        <p>Palayam, Kozhikode</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>UPI ID</strong>
+                        <p>kozhikodedeaf@upi</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="impact-section">
+                <h2>Your Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="impact-number">250+</div>
+                        <div class="impact-text">Students educated annually</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="impact-number">120+</div>
+                        <div class="impact-text">Vocational trainings provided</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="impact-number">75+</div>
+                        <div class="impact-text">Hearing aids distributed</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impact-number">1000+</div>
+                        <div class="impact-text">Lives touched every year</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('menu');
+        const navbar = document.querySelector('.navbar');
+        
+        menuButton.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+        
+        // Donation amount buttons functionality
+        const amountButtons = document.querySelectorAll('.amount-btn');
+        
+        amountButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons in the same card
+                const parentCard = button.closest('.donation-card');
+                parentCard.querySelectorAll('.amount-btn').forEach(btn => {
+                    btn.style.background = '#e6e6e6';
+                    btn.style.color = '#333';
+                });
+                
+                // Set active state for clicked button
+                button.style.background = '#4a6fa5';
+                button.style.color = 'white';
+                
+                // Set the custom amount field value
+                const customAmountField = parentCard.querySelector('.custom-amount');
+                customAmountField.value = button.textContent.replace('₹', '');
+            });
+        });
+        
+        // Donation form submission (demo functionality)
+        const donateButtons = document.querySelectorAll('.donate-btn');
+        
+        donateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const parentCard = button.closest('.donation-card');
+                const amountField = parentCard.querySelector('.custom-amount');
+                const amount = amountField.value;
+                
+                if (!amount || amount <= 0) {
+                    alert('Please enter a valid donation amount.');
+                    return;
+                }
+                
+                alert(`Thank you for your donation of ₹${amount}! In a real application, this would process your payment.`);
+                amountField.value = '';
+                
+                // Reset amount buttons
+                parentCard.querySelectorAll('.amount-btn').forEach(btn => {
+                    btn.style.background = '#e6e6e6';
+                    btn.style.color = '#333';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

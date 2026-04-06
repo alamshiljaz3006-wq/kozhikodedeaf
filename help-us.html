@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Us - Kozhikode District Association of the Deaf</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            background: whitesmoke;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        #menu {
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            color: #1a3a6c;
+        }
+        
+        /* .navbar {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar a {
+            font-size: 16px;
+            color: #1a3a6c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        .navbar a:hover {
+            background-color: #e6eeff;
+            color: #1a3a6c;
+        }
+        
+        .navbar a.active {
+            background-color: #1a3a6c;
+            color: white;
+        } */
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .page-title {
+            font-size: 36px;
+            color: #1a3a6c;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #4a6fa5;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image Section */
+        .image-section {
+            width: 400px;
+            height: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            
+        }
+        
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        
+        /* Bank Details */
+        .bank-details {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .bank-details h2 {
+            font-size: 28px;
+            color: #1a3a6c;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .bank-details h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #4a6fa5;
+            border-radius: 2px;
+        }
+        
+        .bank-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .bank-item {
+            background: #f5f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4a6fa5;
+            transition: transform 0.3s;
+        }
+        
+        .bank-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bank-item strong {
+            display: block;
+            color: #1a3a6c;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .bank-item p {
+            color: #333;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a3a6c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 4%;
+            }
+            
+            #menu {
+                display: block;
+            }
+            
+            /* .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                gap: 25px;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                font-size: 18px;
+            } */
+            
+            .page-title {
+                font-size: 30px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .image-section {
+                height: 300px;
+            }
+            
+            .bank-details {
+                padding: 25px;
+            }
+            
+            .bank-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo img {
+                height: 40px;
+            }
+            
+            .page-title {
+                font-size: 26px;
+            }
+            
+            .bank-details h2 {
+                font-size: 24px;
+            }
+            
+            .bank-item {
+                padding: 15px;
+            }
+            
+            .image-section {
+                height: 250px;
+            }
+        }
+/* added navbar css */
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar a {
+            font-size: 16px;
+            color: #000066;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ee2828;
+        }
+
+
+        @media (max-width: 768px) {
+
+        .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                gap: 25px;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="logo2.png" alt="Logo"></a>
+        <i class='bx bx-menu' id="menu"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="team.html">Our Team</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="help.html" class="active">Help Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <h1 class="page-title">Support Our Cause</h1>
+            <p class="page-subtitle">Your generous donation can make a significant difference in the lives of the deaf community</p>
+            
+            
+            
+            <div class="bank-details">
+                <h2>Bank Transfer Details</h2>
+                <div class="bank-info">
+                    <div class="bank-item">
+                        <strong>Kerala State Co-operative Bank</strong>
+                        <p>Main branch: Kozhikode</p>
+                        <p>Account Number: 162412801001624</p>
+                        <p>IFS CODE: KSBK1600024</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>STATE BANK OF INDIA</strong>
+                        <p>Kannur road branch</p>
+                        <p>Account Number: 57024030990</p>
+                        <p>IFS CODE: SBIN0070188</p>
+                        
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>KDC BANK</strong>
+                        <p>Account Number: 162412801001624</p>
+                        <p>IFS CODE: KSBK0001624</p>
+                    </div>
+                    
+                    <div class="bank-item">
+                        <strong>UPI ID</strong>
+                        <p>deafasso123@sbi</p>
+                    </div>
+                    
+                    
+                    
+                    <div class="bank-item">
+                        <strong>FOR CONTACT</strong>
+                        <p>MOB NO: 9048304061</p>
+                    </div>
+
+                    <div class="bank-item">
+                        <strong>QR CODE</strong>
+                        <p>Scan Below</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="qrcode.png" alt="Community support for the deaf">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 Kozhikode District Association of the Deaf. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('menu');
+        const navbar = document.querySelector('.navbar');
+        
+        menuButton.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && !menuButton.contains(e.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

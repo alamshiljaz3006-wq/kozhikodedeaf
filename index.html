@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kozhikodedeaf.org</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="style10.css"> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        #menu {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .navbar a {
+            font-size: 18px;
+            color: #000066;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: #4a6fa5;
+        }
+
+        /* -----------added navbar section------------ */
+
+        .navbar a{
+            display: inline-block;
+            color: #000000;
+            font-size: 1.0rem;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            letter-spacing: .02;
+            transition: .2s ease;
+            transform: translateY(-100px);
+            opacity: 0;
+            animation: TopSlide 1s ease forwards;
+            animation-delay: calc( 0.8s * var(--vlr));
+        }
+        @keyframes  TopSlide{
+            0%{
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        .navbar a:hover,.navbar a.active{
+            color: #e61425;
+        }
+        section{
+            padding: 10rem 9% 2rem;
+            min-height: 100vh;
+        }
+        .about,.education,.contact,.skills{
+            overflow: hidden;
+        }
+        .home{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }        
+
+
+
+        
+        
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #f8f9fa 70%, #f8f9fa 30%);
+            margin-top: 100px;
+        }
+        
+        .text-content {
+            max-width: 600px;
+        }
+        
+        .text-content h1 {
+            font-size: 42px;
+            color: #000066;
+            margin-bottom: 20px;
+        }
+        
+        .text-animation h2 {
+            font-size: 32px;
+            color: #4a6fa5;
+            margin-bottom: 20px;
+        }
+        
+        .rt {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .social-media {
+            margin-top: 30px;
+        }
+        
+        .social-media i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #4a6fa5;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #4a6fa5;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-media i:hover {
+            background: #4a6fa5;
+            color: #fff;
+        }
+        
+        /* Health Benefits Section */
+        .health-section {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        
+        .health-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .image-slider {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide-description {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn-container {
+            padding: 25px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        
+        .health-btn {
+            display: inline-block;
+            background: #4a6fa5;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(74, 111, 165, 0.4);
+        }
+        
+        .health-btn:hover {
+            background: #3a5a80;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 111, 165, 0.6);
+        }
+        
+        .health-btn i {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        
+        .indicators {
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 22px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .prev {
+            left: 15px;
+        }
+        
+        .next {
+            right: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #000066;
+        }
+        
+        .title span {
+            color: #4a6fa5;
+        }
+        
+        .aboutImg {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .text-content2 {
+            max-width: 800px;
+        }
+        
+        .text-content2 h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        /* Other sections */
+        .education {
+            padding: 80px 10%;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .column h2 {
+            font-size: 24px;
+            color: #000066;
+            margin-bottom: 20px;
+        }
+        
+        .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000066;
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+        }
+        
+        .scroll-top-button {
+            margin: 20px 0;
+        }
+        
+        .scroll-top-button a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .scroll-top-button a:hover {
+            background: #3a5a80;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .home {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .text-content {
+                margin-bottom: 50px;
+            }
+            
+            #menu {
+                display: block;
+            }
+            
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                padding: 10px 10%;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                display: block;
+                margin: 15px 0;
+            }
+            
+            .image-slider {
+                height: 50vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 22px;
+            }
+            
+            .slide-description {
+                font-size: 14px;
+            }
+            
+            .health-btn {
+                padding: 12px 30px;
+                font-size: 15px;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- *************************Navbar************************* -->
+    <header class="header">
+        <a href="#" class="logo"><img src="logo2.png" alt="Logo" width="100" height="100"></a>
+        <i class='bx bx-menu' id="menu" style='color:#000'></i>
+        <nav class="navbar">
+            <a href="index.html" style="--vlr:1" class="active">Home</a>
+            <a href="about-us.html" style="--vlr:2">About Us</a>
+            <a href="our-team.html" style="--vlr:3">Our Team</a>
+            <a href="help-us.html" style="--vlr:4">Help Us</a>
+            <a href="contact-us.html" style="--vlr:5">Contact Us</a>
+        </nav>
+    </header>
+    
+    <!-- *************************Home Section************************* -->
+    <section class="home" id="home">
+        <div class="text-content">
+            <h1>KOZHIKODE DISTRICT ASSOCIATION OF THE DEAF</h1>
+            <div class="text-animation">
+                <h2>Bridging Silence, Building Connections</h2>
+            </div>
+            <h6 class="rt"> 
+                Empowering the deaf community through education, support, and advocacy since 1986.
+                <br>
+                Join us in creating a more inclusive world.
+            </h6>  
+            <div class="social-media">
+                <a href="https://x.com/kozhikodedeaf" target="_blank">
+                <i class='bx bxl-twitter' style="--vlr:7"></i></a>
+
+                <!-- <i class="bx bxl-x-twitter" style="--vlr:7"></i> -->
+                <a href="https://www.facebook.com/share/1FiLo2mjT1/" target="_blank">
+                <i class='bx bxl-facebook' style="--vlr:8"></i></a>
+
+                <a href="http://www.youtube.com/@deafkozhikode8532/@deafkozhikode8532" target="_blank">
+                <i class='bx bxl-youtube' style="--vlr:9"></i></a>
+
+                <!-- <i class='bx bxl-xing' style="--vlr:11"></i> -->
+                <a href="https://www.instagram.com/kozhikodedeaf?igsh=eWthanZ2bDEwbzUz" target="_blank">
+                <i class='bx bxl-instagram' style="--vlr:10"></i></a>
+
+            </div>
+        </div>
+        <!-- <img src="our-team1.jpeg" alt="image" width="-50%" height="100"> -->
+    </section>
+
+    <!-- *************************images Section************************* -->
+    <section class="health-section" id="health">
+        <div class="health-container">
+            <div class="image-slider">
+
+
+                <div class="slide active" style="background-image: url('image01.jpg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Education Support Programs</h2>
+                        <p class="slide-description">We provide educational resources and support for deaf students of all ages.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide active" style="background-image: url('image02.jpg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Education Support Programs</h2>
+                        <p class="slide-description">We provide educational resources and support for deaf students of all ages.</p>
+                    </div>
+                </div>
+                
+
+                <div class="slide" style="background-image: url('image1.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Community Building</h2>
+                        <p class="slide-description">Join our vibrant community events and connect with others.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide" style="background-image: url('image2.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Community Building</h2>
+                        <p class="slide-description">Join our vibrant community events and connect with others.</p>
+                    </div>
+                </div>
+                
+                <div class="slide" style="background-image: url('image3.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Sign Language Training</h2>
+                        <p class="slide-description">Learn sign language through our comprehensive training programs.</p>
+                    </div>
+                </div>
+                
+                <div class="slide" style="background-image: url('image4.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+                
+                <div class="slide" style="background-image: url('image5.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="slide" style="background-image: url('image6.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+                
+                <div class="slide" style="background-image: url('image7.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide" style="background-image: url('image8.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide" style="background-image: url('image9.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="slide" style="background-image: url('image10.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide" style="background-image: url('image11.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+                <div class="slide" style="background-image: url('image12.jpeg')">
+                    <div class="slide-overlay">
+                        <h2 class="slide-title">Advocacy & Awareness</h2>
+                        <p class="slide-description">We work to raise awareness about deaf rights and accessibility.</p>
+                    </div>
+                </div>
+
+
+
+                
+                
+                <div class="indicators">
+                    <div class="indicator active"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div><br><br>
+
+
+
+
+
+
+
+                </div>
+                
+                <div class="nav-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                
+                <div class="nav-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <a href="gallery.html" class="health-btn">Learn More About Our Programs <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- *************************About Section************************* -->
+    <section class="about" id="about">
+        <h2 class="title">KD<span>AD</span></h2>
+        <img src="logo2.png" alt="KDAD Logo" class="aboutImg">
+        <div class="text-content2">
+            <h2 style="color: #000066;">BRIDGING SILENCE</h2>
+            <h6 class="rt"> From the moment of birth, individuals who are deaf enter a world where silence prevails.
+                Devoid of the auditory cues that most take for granted, they grow up without knowledge of 
+                 any formal language, including their mother tongue. Their attempts at communication rely on improvised,
+                 often vague signs and gestures, making effective interaction with others a constant challenge. 
+                 The prospect of formal education, which could potentially enhance their remaining hearing faculties and teach them 
+                 fundamental linguistic skills, is an unattainable dream for over ninety-nine percent of them. The stark reality is 
+                 that India has only about five hundred schools dedicated to the education of the deaf, a number grossly insufficient
+                 to meet the needs of the population. For adults, the situation is equally bleak. There are merely three training institutes available,
+                 with a combined capacity to accommodate only two hundred trainees at a time. These institutions typically offer
+                 training in outdated trades and crafts, many of which have little relevance in today
+                 rapidly evolving job market. Consequently, the deaf are often left with limited opportunities for personal and 
+                 professional development, perpetuating a cycle of marginalization and unmet potential. The inadequacy of resources and support 
+                 systems underscores the urgent need for a more inclusive and comprehensive approach to education and vocational training for the deaf, 
+                 ensuring they are equipped to lead fulfilling and productive lives.
+                <br> Deaf.....</br></h6>
+            <button class="health-btn">Read More</button>
+        </div>
+    </section>
+    
+    <!-- *************************Work Section************************* -->
+    <section class="education" id="education">
+        <h2 class="title">ABOUT <span>US</span></h2>
+        <div class="row">
+            <div class="column">
+                <h2>ABOUT US</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <p>From birth to death, they live in a world of eternal silence. They do not know any language, 
+                                not even their mother-tongue. Self improvised and vague signs and gestures are their only 
+                                mean of self-expression and understanding others. Uneducated, untrained, they fight on their own,
+                                 a losing battle for survival, in a highly competitive modern society. A life of neglect, suffering
+                                  and misery is their lot 
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="education-content"> -->
+                        <!-- <div class="content"> -->
+                            To bring some succor to these people, cut off from normal society by insurmountable communication barriers,
+                                 Kozhikode District Association of the Deaf has been working since 1986. <br><br>
+                                  Kozhikode District Association of the Deaf  is affiliated to the All Kerala Association of the Deaf 
+                                  and associated with all India Federation of the Deaf and World Federation of the Deaf.
+                                   At present Kozhikode District Association of the Deaf  is having more than 750 life members.
+                                   It has been an up till task. Absence of awareness about the cause of the deaf, 
+                                   has deprived the Association of the milk of human kindness, also public and Government assistance.</p><br>
+                                
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <p>Its membership has grown from just one digit to over , 750.
+                                 We provide them facilities for education (formal/non-formal),
+                                  training in secretarial practices, typewriting, computer operations,
+                                   Desk Top Publishing etc. It has a well-stocked Library and a Reading Room.
+                                    Sports and games form an integral part of its activities.</p>
+                                    <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h2>OUR TEAM</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <h3>Meet our teem</h3>
+                            <p>The office bearers of Kozhikode district  Association of the Deaf is working hard to assist the 
+                                Deaf to achieve a better quality of life and to enable them to integrate and contribute to society.
+                                 Adv. Sri. Binoy Viswam, Sri. P. V. Gangadharan and Sri. P. K. Mamukoya are the Patrons of 
+                                 this organisation. Adv. Ratnakumar Mallissery is the President and.... </p><br>
+                                    <div class="btn-container">
+                                        <a href="#" class="health-btn"> Our Team <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="column">
+                <h2>WE PROVIDE THEM</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <!-- <h3>We Provide them</h3> -->
+                            <p>
+                                <b>Aid for Medical Treatment<br>
+                                Aid for Education 
+                                <br>
+                                Aid for Marriage
+                                <br>
+                                Career Guidance
+                                <br>
+                                Aid Self Employment
+                                <br>
+                                Legal Aid
+                                <br>
+                                Supply of Hearing Aids</b></p>
+                                <br>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+                  
+            <div class="column">
+                <h2>CONTRIBUTION</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <h3>help us</h3>
+                            <p>Please...... 
+                                <br>
+                                <br>
+
+                                Your generous support would bring us a step closer to sufficiently meet the needs of the less
+                                 privileged Deaf's in Kozhikode and also to help them fulfill their aspirations.
+                                
+                                
+                                <a href="help-us.html" target="_blank"> Click Here for more details... </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h2>CONTRIBUTION</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <h3>OUR TEAM</h3>
+                            <p>The office bearers of Kozhikode district  Association of the Deaf is working hard to assist the 
+                                Deaf to achieve a better quality of life and to enable them to integrate and contribute to society.
+                                 Adv. Sri. Binoy Viswam, Sri. P. V. Gangadharan and Sri. P. K. Mamukoya are the Patrons of 
+                                 this organisation. Adv. Ratnakumar Mallissery is the President and....  </p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h2>FOR VISIT</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                            <!-- <div class="year">2024<i class='bx bxs-calendar'></i></div> -->
+                            <h3>CLICK HERE</h3>
+                        <p><a href="http://www.keraladeaf.org/" target="_blank">Kerala Deaf</a></b></td>
+                        <br>
+                        National Institute for hearing impared</b></td><br>
+                        <a href="http://www.wfdeaf.org/" target="_blank">World Federation of Deaf</a></b></td>
+                        <br>
+                        <a href="http://www.aicgdeaf.org/" target="_blank">Central Govt. employed Deaf</a></b></td>
+                        <br>
+                        <a href="http://indiansignlanguage.org/" target="_blank">Indian sign Language</a></b></td>
+                        <br>
+                        <a href="http://www.ignou.ac.in/" target="_blank">IGNOU</a></b></td>
+                        <br>
+                        <a href="http://deafpeople.com" target="_blank">Deaf Leaders</a></b></td>
+                        <br>
+                    </div>               
+                         </p>
+
+                </div>
+                </p>
+
+        </div>
+            <br>
+            <br>
+        <div class="row">
+            <div class="column">
+                <h2>DONATE US</h2>
+                <div class="box">
+                    <div class="education-content">
+                        <div class="content">
+                             <h3>help us</h3>
+                            <p>Please...... 
+                                <br>
+                                <br>
+
+                                Your generous support would bring us a step closer to sufficiently meet the needs of the less
+                                 privileged Deaf's in Kozhikode and also to help them fulfill their aspirations.</p><br>
+                                
+                                
+                                <!-- <a href="help us.html" target="_blank"> Click Here for more details... </a></p><br> -->
+                                    <br>
+                                    <div class="btn-container">
+                                        <a href="help-us.html" class="health-btn"> Help Us <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+
+    </section>
+    
+    <!-- *************************Footer************************* -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-details">
+                <p><strong>Address:</strong> Administrative Office:   
+                    P. B. Box No. 53,<br>
+                    Room No: 21 <br>
+                    3rd Floor
+                    Jayanthi Building <br>
+                    Palayam Bus Stand <br>
+                    Kozhikode 673001, Kerala, India</p>
+                <p><strong>Phone:</strong> +91 9048304061</p>
+                <p><strong>Email:</strong> <a href="mailto:kozhikodedeaf@gmail.com" style="color: #fff;">kozhikodedeaf@gmail.com</a></p>
+            </div>
+
+            <div class="scroll-top-button">
+                <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+            </div>
+
+            <div class="text">
+                <p>&copy; KOZHIKODE DISTRICT ASSOCIATION OF THE DEAF</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle navbar
+        let menu = document.getElementById('menu');
+        let navbar = document.querySelector('.navbar');
+        
+        menu.onclick = () => {
+            navbar.classList.toggle('active');
+        }
+        
+        // Health section slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentSlide = 0;
+            const slideInterval = 2000; // Change image every 1.5 seconds
+            
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Remove active class from all slides and indicators
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Add active class to current slide and indicator
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // Function to go to next slide
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+            
+            // Function to go to previous slide
+            function prevSlide() {
+                let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevIndex);
+            }
+            
+            // Set up automatic slideshow
+            let autoSlide = setInterval(nextSlide, slideInterval);
+            
+            // Add click events to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    clearInterval(autoSlide);
+                    showSlide(index);
+                    autoSlide = setInterval(nextSlide, slideInterval);
+                });
+            });
+            
+            // Add click events to navigation buttons
+            nextBtn.addEventListener('click', function() {
+                clearInterval(autoSlide);
+                nextSlide();
+                autoSlide = setInterval(nextSlide, slideInterval);
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                clearInterval(autoSlide);
+                prevSlide();
+                autoSlide = setInterval(nextSlide, slideInterval);
+            });
+            
+            // Pause slideshow when hovering over image
+            const imageSlider = document.querySelector('.image-slider');
+            imageSlider.addEventListener('mouseenter', function() {
+                clearInterval(autoSlide);
+            });
+            
+            // Resume slideshow when mouse leaves image
+            imageSlider.addEventListener('mouseleave', function() {
+                autoSlide = setInterval(nextSlide, slideInterval);
+            });
+        });
+    </script>
+</body>
+</html>

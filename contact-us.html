@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Kozhikode District Association of the Deaf</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        #menu {
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            color: #000066;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar a {
+            font-size: 16px;
+            color: #000066;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ee2828;
+        }
+        
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 100px 5% 60px;
+            background: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .contact-info {
+            background: #000066;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+        
+        .contact-details p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .contact-details strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .contact-details a {
+            color: #ee2828;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 4%;
+            }
+            
+            #menu {
+                display: block;
+            }
+            
+            .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                gap: 25px;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                font-size: 18px;
+            }
+            
+            .contact-section {
+                padding: 80px 3% 40px;
+            }
+            
+            .contact-info {
+                padding: 25px;
+            }
+            
+            .contact-info h2 {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .contact-info {
+                padding: 20px;
+            }
+            
+            .contact-info h2 {
+                font-size: 22px;
+            }
+            
+            .contact-details p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- *************************Navbar************************* -->
+    <header class="header">
+        <a href="#" class="logo"><img src="logo2.png" alt="Logo"></a>
+        <i class='bx bx-menu' id="menu"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="team.html">Our Team</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </nav>
+    </header>
+    
+    <!-- *************************Contact Section************************* -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="contact-details">
+                    <p><strong>Address:</strong> Administrative Office:   
+                        P. B. Box No. 53,<br>
+                        Room No: 21 <br>
+                        3rd Floor
+                        Jayanthi Building <br>
+                        Palayam Bus Stand <br>
+                        Kozhikode 673001, Kerala, India</p>
+                    <p><strong>Phone:</strong> +91 9048304061</p>
+                    <p><strong>Email:</strong> <a href="mailto:kozhikodedeaf@gmail.com">kozhikodedeaf@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('menu');
+        const navbar = document.querySelector('.navbar');
+        
+        menuButton.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
